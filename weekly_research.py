@@ -15,16 +15,16 @@ FEEDS = {
 # --- Email config ---
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-EMAIL = "lalturki20@gmail.com"
-PASSWORD = "mvkibttydazdoenb"   # Use Gmail App Password, not your main password
-TO_EMAIL = "lalturki20@gmail.com"
+EMAIL = " "
+PASSWORD = " "   # Use Gmail App Password, not your main password
+TO_EMAIL = " "
 
 # --- Collect papers ---
 def get_papers():
     papers = []
     for topic, url in FEEDS.items():
         feed = feedparser.parse(url)
-        for entry in feed.entries[:20]:  # latest 10 per topic
+        for entry in feed.entries[:20]:  # latest 20 per topic
             papers.append(f"<b>[{topic}]</b> {entry.title}<br>{entry.link}<br><br>")
     return papers
 
